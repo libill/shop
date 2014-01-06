@@ -42,6 +42,16 @@ class Shop(object):
         WineSNSClient.URL = settings.SHOP_SNS_URL_PRODUCTION
         self.mode = "production"
 
-    def search(self):
-        resp = requests.get(Shop.URL + '/1/search.php')
+    def search(self, keyword, has_taobao, cid, sid, page_no, page_size, star_price, end_price, sort):
+        resp = requests.post(Shop.URL + '/1/search.php',
+                            data={'keyword': keyword, 'has_taobao': has_taobao, 'cid':cid,
+                                  'sid':sid, 'page_no':page_no, 'page_size':page_size,
+                                  'star_price':star_price, 'end_price':end_price, 'sort':sort})
+        return as_json(resp)
+
+
+    def blog__comment(self, blogid, comment):
+        resp = requests.post(WineSNSClient.URL + '/1/blog/comment.php',
+                                       data={'blogid': blogid, 'comment': comment},
+                             headers={'AUTHORIZATION': 'Bearer %s' % self.token})
         return as_json(resp)

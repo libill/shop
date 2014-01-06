@@ -6,6 +6,7 @@
 	 * */
 	header("Content-type:text/html; charset=UTF-8");
 	require '../library/init.inc.php';
+	include_once('../api_common.php');
 	
 	$api59miao=new Api59miao($AppKeySecret);
 	
@@ -13,7 +14,23 @@
 	//可传字段iid,click_url,seller_url,title,sid,seller_name,cid,desc,pic_url,price,cash_ondelivery,freeshipment,installment,has_invoice,modified,price_reduction,price_decreases,original_price
 	
 	$fileds="iid,click_url";
-	
+
+	$keyword = $_POST['keyword'];
+	$has_taobao = $_POST['has_taobao'];
+	$cid = $_POST['cid'];
+	$sid = $_POST['sid'];
+	$page_no = $_POST['page_no'];
+	$page_size = $_POST['page_size'];
+	$star_price = $_POST['star_price'];
+	$end_price = $_POST['end_price'];
+	$sort = $_POST['sort'];
+
+	if (empty($keyword)){
+		echo_errors_and_exit($ret, '6001');
+	}
+	if (empty($has_taobao)){
+		$has_taobao = false;
+	}
 	
 	/*
 	 *ListItemsSearch($fields,$keyword,$has_taobao=null,$cid = null, $sid = null, $page_no = 1, $page_size = 40,$star_price=null,$end_price=null,$sort=null)
@@ -22,7 +39,8 @@
 	 * $has_taobao  是否显示淘宝数据
 	 * 
 	 * */
-	$Api59miaoData=$api59miao->ListItemsSearch($fileds,'女装','', '0', '0', '1', '40');
+	$Api59miaoData=$api59miao->ListItemsSearch($fileds, $keyword, $has_taobao, $cid, $sid, $page_no, $page_size, $star_price,
+		$end_price, $sort);
 	print_r($Api59miaoData);
 	
 	/*

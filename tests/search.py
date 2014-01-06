@@ -9,7 +9,7 @@ class CommentTest(unittest.TestCase):
         self.wc = Shop()
 
     def test_search(self):
-        ret = self.wc.search()
+        ret = self.wc.search('good', 'true', '0', '0', '1', '40', '', '', '')
         print ret
 
 
