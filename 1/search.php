@@ -15,6 +15,7 @@
 	
 	$fileds="iid,click_url";
 
+	//参数：keyword,cid,sid,至少选择其中一个参数
 	$keyword = $_POST['keyword'];
 	$has_taobao = $_POST['has_taobao'];
 	$cid = $_POST['cid'];
@@ -25,10 +26,10 @@
 	$end_price = $_POST['end_price'];
 	$sort = $_POST['sort'];
 
-	if (empty($keyword)){
+	if (empty($keyword) && empty($cid) && empty($sid)){
 		echo_errors_and_exit($ret, '6001');
 	}
-	if (empty($has_taobao)){
+	if ($has_taobao == true){
 		$has_taobao = false;
 	}
 	
@@ -39,8 +40,8 @@
 	 * $has_taobao  是否显示淘宝数据
 	 * 
 	 * */
-	$Api59miaoData=$api59miao->ListItemsSearch($fileds, $keyword, $has_taobao, $cid, $sid, $page_no, $page_size, $star_price,
-		$end_price, $sort);
+	$Api59miaoData=$api59miao->ListItemsSearch($fileds, $keyword, $has_taobao, $cid, $sid,
+	 $page_no, $page_size, $star_price, $end_price, $sort);
 	print_r($Api59miaoData);
 	
 	/*

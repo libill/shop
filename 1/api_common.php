@@ -5,7 +5,7 @@ define ('HAIER_URL', 'http://127.0.0.1');
 define ("ERROR", serialize (array (
 
        // search errors
-       "6001" => "keyword,cid,sid cannot all be null!",
+       "6001" => "keyword cannot be null!",
        "6003" => "Server error!"
        )));
 
