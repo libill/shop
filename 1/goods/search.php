@@ -5,7 +5,7 @@
 	 * 如果网站编码为UTF-8则修改library/config.php 编码为UFT-8
 	 * */
 	header("Content-type:text/html; charset=UTF-8");
-	require '../library/init.inc.php';
+	require '../../library/init.inc.php';
 	include_once('../api_common.php');
 	
 	$api59miao=new Api59miao($AppKeySecret);

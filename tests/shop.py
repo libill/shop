@@ -43,7 +43,7 @@ class Shop(object):
         self.mode = "production"
 
     def search(self, keyword, has_taobao, cid, sid, page_no, page_size, star_price, end_price, sort):
-        resp = requests.post(Shop.URL + '/1/search.php',
+        resp = requests.post(Shop.URL + '/1/goods/search.php',
                             data={'keyword': keyword, 'has_taobao': has_taobao, 'cid':cid,
                                   'sid':sid, 'page_no':page_no, 'page_size':page_size,
                                   'star_price':star_price, 'end_price':end_price, 'sort':sort})
