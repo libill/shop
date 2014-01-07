@@ -60,7 +60,10 @@ class Shop(object):
                              data={'cids':cids})
         return as_json(resp)
 
-
+    def ads(self, sids):
+        resp = requests.post(Shop.URL + '/1/shops/ads.php',
+                             data={'sids':sids})
+        return as_json(resp)
 
 
         

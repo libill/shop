@@ -7,7 +7,11 @@ define ("ERROR", serialize (array (
        // goods errors
        "6001" => "keyword,cid,sid cannot all be null!",
        "6002" => "iids,urls cannot all be null!",
-       "6003" => "cids cannot be null!"
+       "6003" => "cids cannot be null!",
+
+       //shops erors
+       "7001" => "sids cannot be null!"
+
        )));
 
 
