@@ -15,7 +15,12 @@ class CommentTest(unittest.TestCase):
         print 1
 
     def test_detail(self):
-        ret = self.wc.detail('10218381', '')
+        #ret = self.wc.detail('10218381', '')
+        #print ret
+        print 2
+
+    def test_itemcats(self):
+        ret = self.wc.itemcats('20')
         print ret
         
 

@@ -55,6 +55,11 @@ class Shop(object):
                              data={'iids':iids, 'urls':urls})
         return as_json(resp)
 
+    def itemcats(self, cids):
+        resp = requests.post(Shop.URL + '/1/goods/itemcats.php',
+                             data={'cids':cids})
+        return as_json(resp)
+
 
 
 
