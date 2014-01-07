@@ -50,8 +50,12 @@ class Shop(object):
         return as_json(resp)
 
 
-    def blog__comment(self, blogid, comment):
-        resp = requests.post(WineSNSClient.URL + '/1/blog/comment.php',
-                                       data={'blogid': blogid, 'comment': comment},
-                             headers={'AUTHORIZATION': 'Bearer %s' % self.token})
+    def detail(self, iids, urls):
+        resp = requests.post(Shop.URL + '/1/goods/detial.php',
+                             data={'iids':iids, 'urls':urls})
         return as_json(resp)
+
+
+
+
+        

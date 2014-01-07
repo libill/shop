@@ -10,8 +10,14 @@ class CommentTest(unittest.TestCase):
         self.wc = Shop()
 
     def test_search(self):
-        ret = self.wc.search('大衣', '1', '0', '0', '1', '40', '', '', '')
+        #ret = self.wc.search('大衣 男', '1', '0', '0', '1', '1', '', '', '')
+        #print ret
+        print 1
+
+    def test_detail(self):
+        ret = self.wc.detail('10218381', '')
         print ret
+        
 
 
 if __name__=='__main__':
